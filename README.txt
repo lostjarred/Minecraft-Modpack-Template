@@ -29,4 +29,4 @@ I use this folder for any documents for you modpack, perhapes some tutorials if 
 -modlist.html
 a simple html webpage that I use to keep track of mods in my modpack, 
 also contains direct download links to the mods in case if cursforge disables modpack downloading for some reason as well as other info
-such as version of the mod and any depencitys it might have
+such as version of the mod and any dependencies it might have
