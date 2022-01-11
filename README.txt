@@ -16,6 +16,12 @@ The file id is: 2667280
 this is where all the customised mod configs go, 
 I recomend using a symbolic link to your minecraft instnace to keep the modpack configs up to day
 
+-/overrides/defaultconfigs
+In versions > 1.12.2 there is a new place for certain configs usually concerning some type of worldgen normally these
+are found in the saved world folder for example: Minecraft/saves/yourworld/serverconfig
+these are created in each time a new world is generated. by moving a config into this folder it will be used instead
+of being generated an example mod where this is required is Immersive Engineering
+
 -/overrides/scripts
 this is where craftweaker scripts go, if required, 
 I recomended using symbloic link to your minecraft instance to keep your scripts up to date
