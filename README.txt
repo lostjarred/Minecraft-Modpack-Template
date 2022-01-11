@@ -1,4 +1,5 @@
 +  Minecraft Modpack Template +
+
 - Overview -
 A small template project for minecraft modpacks, meant to make it easier to create modpacks without having to use the curse launcher or external tools/launchers
 
