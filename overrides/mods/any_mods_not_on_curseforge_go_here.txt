@@ -1,0 +1,1 @@
+as the title says this is where any mods not hosted on curseforge go just place the jar files in this directory
