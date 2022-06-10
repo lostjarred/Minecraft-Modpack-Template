@@ -9,24 +9,44 @@
                 border: 2px solid black;
                 padding: 8px;
             }
-            body{
-                background-color: grey;
-            }
             .main{
                 float: left;
                 margin-left: 15%;
                 margin-right: 15%;
-                background-color: rgba(245, 245, 245, 0.800);
+                height: 100%;
                 margin-top: 0%;
                 margin-bottom: 0%;
-                border-left: 8px solid rgba(245, 245, 245, 0.900);
-                border-right: 8px solid rgba(245, 245, 245, 0.900);
+                border-left: 2px solid black;
+                border-right: 2px solid black;
             }
             .modlist{
                 margin-left: 8px;
                 margin-right: 8px;
             }
         </style>
+        <script>
+            //array to hold mods
+            const modlist = new Array;
+            
+            //function to add mods to array
+            function addmodtoarray(name, version, projectid, fileid, link, depency){
+                modlist.push([name, version, projectid, fileid, link, depency]);
+            }
+            
+            //function to update mod table
+            function createmodtable(htmltable, modarray){
+                var tableheaders = "<tr><th>Mod Name</th><th>Version</th><th>Project ID</th><th>File ID</th><th>Link</th><th>Dependencies</th></tr>";
+                var outputmodtable = tableheaders;
+                for(let i = 0; i < modarray.length; i++) {
+                    var modrow = '<tr> <td class="ModName">'+modarray[i][0]+'</td> <td>'+modarray[i][1]+'</td> <td>'+modarray[i][2]+'</td> <td>'+modarray[i][3]+'</td> <td> <a class="modurl" target="_blank"> '+modarray[i][4]+' </a> </td> <td>'+modarray[i][5]+'</td></tr>';
+                    outputmodtable = outputmodtable + modrow;
+                }
+                htmltable.innerHTML=outputmodtable;
+            }
+            //add mods to array
+            //example
+            addmodtoarray("The One Probe", "1.16-3.1.7", "245211", "3752096", "https://www.curseforge.com/minecraft/mc-mods/the-one-probe/files/3752096", "NA")
+        </script>
     </head>
     <body>
         <div class="Main">
@@ -34,30 +54,19 @@
                 <h1>Modpack Name</h1>
                 <h2>Mod List</h2>
                 <hr>
-                <table>
-                    <tr>
-                        <th>Mod Name</th>
-                        <th>Version</th>
-                        <th>Project ID</th>
-                        <th>File ID</th>
-                        <th>Link</th>
-					    <th>Dependency</th>
-                    </tr>
-                    <!--example-->
-                    <tr>
-                        <td>The One Probe</td>
-                        <td>1.16-3.1.4</td>
-                        <td>245211</td>
-                        <td>3319255</td>
-                        <td> <a class="modurl" target="_blank">https://www.curseforge.com/minecraft/mc-mods/the-one-probe/files/2667280 </a> </td>
-					    <td>NA</td>
-                    </tr>
+                <table id="modlist">
+
                 </table>
             </div>
         </div>
     </body>
-    <!-- small litlle piece of java script to auto convert the link instead of copy pasting twice -->
     <script>
+        //get the modlist table
+        var modlisttable = document.getElementById("modlist");
+        createmodtable(modlisttable, modlist)
+    </script>
+    <script>
+        //small litle piece of java script to auto convert the link instead of copy pasting twice
         var modlinks = document.getElementsByClassName("modurl");
         for (let i = 0; i < modlinks.length; i++) {
             var link = modlinks[i].innerHTML;
