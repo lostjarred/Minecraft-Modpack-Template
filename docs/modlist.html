@@ -28,16 +28,26 @@
             const modlist = new Array;
             
             //function to add mods to array
-            function addmodtoarray(name, version, projectid, fileid, link, depency){
-                modlist.push([name, version, projectid, fileid, link, depency]);
+            function addmodtoarray(name, version, projectid, fileid, website, depency){
+                modlist.push([name, version, projectid, fileid, website, depency]);
+            }
+
+            function genmodfilelink(website, fileid){
+                var output = website +'/files/' + fileid;
+                return output;
             }
             
             //function to update mod table
             function createmodtable(htmltable, modarray){
-                var tableheaders = "<tr><th>Mod Name</th><th>Version</th><th>Project ID</th><th>File ID</th><th>Link</th><th>Dependencies</th></tr>";
+                var tableheaders = "<tr><th>Mod Name</th><th>Version</th><th>Project ID</th><th>File ID</th><th>Website link</th><th>Dependencies</th></tr>";
                 var outputmodtable = tableheaders;
                 for(let i = 0; i < modarray.length; i++) {
-                    var modrow = '<tr> <td class="ModName">'+modarray[i][0]+'</td> <td>'+modarray[i][1]+'</td> <td>'+modarray[i][2]+'</td> <td>'+modarray[i][3]+'</td> <td> <a class="modurl" target="_blank"> '+modarray[i][4]+' </a> </td> <td>'+modarray[i][5]+'</td></tr>';
+                    var modname = modarray[i][0];
+                    var version = modarray[i][1];
+                    var projectid = modarray[i][2];
+                    var fileid = modarray[i][3];
+                    var website = modarray[i][4];
+                    var modrow = '<tr> <td class="ModName">'+modname+'</td> <td>'+version+'</td> <td>'+projectid+'</td> <td>'+fileid+'</td> <td> <a class="modurl" target="_blank"> '+website+' </a> </td> <td>'+modarray[i][5]+'</td></tr>';
                     outputmodtable = outputmodtable + modrow;
                 }
                 htmltable.innerHTML=outputmodtable;
@@ -54,7 +64,7 @@
                 <h2>Mod List</h2>
                 <hr>
                 <table id="modlist">
-
+                    <td>this page requies javascript, please enable javascript</td>
                 </table>
             </div>
         </div>
